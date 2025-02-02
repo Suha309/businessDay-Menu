@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Menu</title>
+    <style>
+        /* General Body Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('assets/images/businessday-theme.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: #00005e;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        
+        h1 {
+            color: #00005e; /*title Color*/
+            margin-top: 20px;
+            font-size: 30px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Image Styling for the Menu page */
+        img {
+            width: 600px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+
+        /* Dropdown Category Style */
+        .category {
+            background-color: #00005e;
+            color: #fbfbfe;
+            padding: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            width: 80%;
+            text-align: left;
+            margin: 10px auto;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .category:hover {
+            background-color: #e92acd;
+        }
+
+        /* Hide List Items by Default */
+        .items {
+            display: none;
+            list-style: none;
+            padding: 0;
+            margin-top: 10px;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .items li {
+            background-color: #63a7ff;
+            margin: 6px 0;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+
+        button:hover {
+            background-color: #e92acd;
+        }
+    </style>
+</head>
+<body>
+    <h1> Delicious Choices Await You!</h1>
+    <h1> Explore Our Menu</h1>
+    <h1 style="font-family: 'Droid Arabic Kufi', sans-serif;">خيارات لذيذة في انتظارك! استكشف قائمتنا.</h1>
+
+
+    <!-- Category: Food & Drinks -->
+    <button class="category" onclick="toggleItems('food-drinks')">Food & Drinks</button>
+    <ul id="food-drinks" class="items">
+        <li>Customized Cupcakes (Various Flavors)</li>
+        <li>Freshly Baked Cookies</li>
+        <li>Mini Pancakes</li>
+        <li>Dubai Chocolate Bars</li>
+        <li>Assorted Cakes</li>
+        <li>Gummy Candies</li>
+        <li>Assorted Candies (Lollipops, Gummies, etc.)</li>
+        <li>Refreshing Drinks</li>
+        <li>Fresh Smoothies</li>
+        <li>Mini Burgers</li>
+        <li>Mini Pizza</li>
+    </ul>
+
+    <!-- Category: Accessories -->
+    <button class="category" onclick="toggleItems('accessories')">Accessories</button>
+    <ul id="accessories" class="items">
+        <li>Handmade Bracelets and Necklaces</li>
+        <li>Charms</li>
+        <li>Girls Accessories</li>
+        <li>Keychains</li>
+    </ul>
+
+    <!-- Category: Assorted Items -->
+    <button class="category" onclick="toggleItems('assorted-items')">Assorted Items</button>
+    <ul id="assorted-items" class="items">
+        <li>Mugs</li>
+        <li>Fun Toys</li>
+        <li>Small Potted Plants</li>
+        <li>Fish Tanks</li>
+        <li>Slime</li>
+    </ul>
+
+    <!-- Category: Teachers Zone -->
+    <button class="category" onclick="toggleItems('teachers-zone')">Teachers Zone</button>
+    <ul id="teachers-zone" class="items">
+        <li>Coffee & Espresso (Hot Drinks)</li>
+        <li>Assorted Desserts (Cookies, Brownies, Pastries)</li>
+    </ul>
+
+    
+    <!-- School Logo -->
+    <img src="C:\HTML/andalusLogo.jpeg" alt="School Logo">
+
+    <br>
+
+
+    <!-- JavaScript to Toggle Dropdown Visibility -->
+    <script>
+        function toggleItems(categoryId) {
+            var itemsList = document.getElementById(categoryId);
+            if (itemsList.style.display === "block") {
+                itemsList.style.display = "none";
+            } else {
+                itemsList.style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>
