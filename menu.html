@@ -93,6 +93,31 @@
             border-radius: 5px;
             margin: 20px auto;
         }
+
+        .buy-btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+
+            .buy-btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        }
+        .cart {
+            margin-top: 20px;
+            padding: 10px;
+            background: #fff3cd;
+            border-radius: 10px;
+        }
         
     </style>
 </head>
@@ -111,16 +136,30 @@
     <ul id="food-drinks" class="items">
         
         <li>Customized Cupcakes (Various Flavors)</li>
+                        <button class="buy-btn" onclick="addToCart('Customized Cupcakes')">Buy</button>
         <li>Freshly Baked Cookies</li>
+                       <button class="buy-btn" onclick="addToCart('Freshly Baked Cookies')">Buy</button>
         <li>Mini Pancakes</li>
+                          <button class="buy-btn" onclick="addToCart('Mini Pancakes')">Buy</button>
         <li>Dubai Chocolate Bars</li>
+                         <button class="buy-btn" onclick="addToCart('Dubai Chocolate Bars')">Buy</button>
+
         <li>Assorted Cakes</li>
+                          <button class="buy-btn" onclick="addToCart('Assorted Cakes')">Buy</button>
+
         <li>Gummy Candies</li>
+                         <button class="buy-btn" onclick="addToCart('Gummy Candies')">Buy</button>
         <li>Assorted Candies (Lollipops, Gummies, etc.)</li>
+                         <button class="buy-btn" onclick="addToCart('Assorted Candiess')">Buy</button>
         <li>Refreshing Drinks</li>
+                          <button class="buy-btn" onclick="addToCart('Refreshing Drinks')">Buy</button> 
         <li>Fresh Smoothies</li>
+                         <button class="buy-btn" onclick="addToCart('Fresh Smoothies')">Buy</button>
         <li>Mini Burgers</li>
+                        <button class="buy-btn" onclick="addToCart('Mini Burgers')">Buy</button>
         <li>Mini Pizza</li>
+                       <button class="buy-btn" onclick="addToCart('Mini Pizza')">Buy</button>
+
     </ul>
 
     <!-- Category: Accessories -->
