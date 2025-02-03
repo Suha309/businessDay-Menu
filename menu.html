@@ -79,8 +79,8 @@
         }
 
         .category-img {
-            width: 45px; /* Small size for category images */
-            height: 45px; /* Maintain aspect ratio */
+            width: 50px; /* Small size for category images */
+            height: 50px; /* Maintain aspect ratio */
             margin-center: 10px; /* Space between image and text */
             vertical-align: middle; /* Align the image with the text */
             
@@ -223,6 +223,35 @@
                 itemsList.style.display = "block";
             }
         }
+
+        </div>
+        </div>
+        
+        <div class="cart">
+            <h2>Shopping Cart</h2>
+            <ul id="cart-items"></ul>
+        </div>
+    </div>
+
+    <script>
+        let cart = [];
+
+        function addToCart(item) {
+            cart.push(item);
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartList = document.getElementById('cart-items');
+            cartList.innerHTML = '';
+            cart.forEach(item => {
+                let li = document.createElement('li');
+                li.textContent = item;
+                cartList.appendChild(li);
+            });
+        }
+    </script>
+
     </script>
 </body>
 </html>
