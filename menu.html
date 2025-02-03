@@ -239,7 +239,7 @@
 
 
     <!-- JavaScript to Toggle Dropdown Visibility -->
-    <script>
+     <script>
         function toggleItems(categoryId) {
             var itemsList = document.getElementById(categoryId);
             if (itemsList.style.display === "block") {
@@ -249,8 +249,35 @@
             }
         }
 
+        function addToCart(itemName) {
+            var cartList = document.getElementById("cart-items");
+            var existingItem = document.querySelector(`#cart-items li[data-item='${itemName}']`);
 
-    
+            if (existingItem) {
+                var quantitySpan = existingItem.querySelector(".quantity");
+                var quantity = parseInt(quantitySpan.innerText);
+                quantitySpan.innerText = quantity + 1;
+            } else {
+                var listItem = document.createElement("li");
+                listItem.setAttribute("data-item", itemName);
+                listItem.innerHTML = `${itemName} - <span class="quantity">1</span>
+                    <button onclick="removeFromCart('${itemName}')">Remove</button>`;
+                cartList.appendChild(listItem);
+            }
+        }
+
+        function removeFromCart(itemName) {
+            var existingItem = document.querySelector(`#cart-items li[data-item='${itemName}']`);
+            if (existingItem) {
+                var quantitySpan = existingItem.querySelector(".quantity");
+                var quantity = parseInt(quantitySpan.innerText);
+                if (quantity > 1) {
+                    quantitySpan.innerText = quantity - 1;
+                } else {
+                    existingItem.remove();
+                }
+            }
+        }
     </script>
 </body>
 </html>
