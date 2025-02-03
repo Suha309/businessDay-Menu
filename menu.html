@@ -224,6 +224,49 @@
             }
         }
 
+        <div class="cart">
+    <h2>Shopping Cart</h2>
+    <ul id="cart-items"></ul>
+</div>
+
+         function addToCart(itemName) {
+        var cartList = document.getElementById("cart-items");
+
+        // Check if the item already exists in the cart
+        var existingItem = document.querySelector(`#cart-items li[data-item='${itemName}']`);
+        
+        if (existingItem) {
+            // Update quantity if item is already in the cart
+            var quantitySpan = existingItem.querySelector(".quantity");
+            var quantity = parseInt(quantitySpan.innerText);
+            quantitySpan.innerText = quantity + 1;
+        } else {
+            // Create a new cart item
+            var listItem = document.createElement("li");
+            listItem.setAttribute("data-item", itemName);
+            listItem.innerHTML = `
+                ${itemName} - <span class="quantity">1</span>
+                <button onclick="removeFromCart('${itemName}')">Remove</button>
+            `;
+            cartList.appendChild(listItem);
+        }
+    }
+
+    function removeFromCart(itemName) {
+        var existingItem = document.querySelector(`#cart-items li[data-item='${itemName}']`);
+
+        if (existingItem) {
+            var quantitySpan = existingItem.querySelector(".quantity");
+            var quantity = parseInt(quantitySpan.innerText);
+
+            if (quantity > 1) {
+                quantitySpan.innerText = quantity - 1;
+            } else {
+                existingItem.remove();
+            }
+        }
+    }
+
     
     </script>
 </body>
