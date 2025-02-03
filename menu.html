@@ -82,6 +82,7 @@
             width: 55px; /* Small size for category images */
             height: 55px; /* Maintain aspect ratio */
             margin-center: 10px; /* Space between image and text */
+            margin: 10px auto;  /* to center */
             vertical-align: middle; /* Align the image with the text */
             
         }
@@ -103,14 +104,6 @@
             border-radius: 5px;
             vertical-align: middle;
 
-            .buy-btn {
-            background-color: #28a745;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
 
         }
         .cart {
@@ -119,6 +112,50 @@
             background: #fff3cd;
             border-radius: 10px;
         }
+
+         <div class="cart">
+    <h2>Shopping Cart</h2>
+    <ul id="cart-items"></ul>
+</div>
+
+        function addToCart(itemName) {
+        var cartList = document.getElementById("cart-items");
+
+        // Check if the item already exists in the cart
+        var existingItem = document.querySelector(`#cart-items li[data-item='${itemName}']`);
+        
+        if (existingItem) {
+            // Update quantity if item is already in the cart
+            var quantitySpan = existingItem.querySelector(".quantity");
+            var quantity = parseInt(quantitySpan.innerText);
+            quantitySpan.innerText = quantity + 1;
+        } else {
+            // Create a new cart item
+            var listItem = document.createElement("li");
+            listItem.setAttribute("data-item", itemName);
+            listItem.innerHTML = `
+                ${itemName} - <span class="quantity">1</span>
+                <button onclick="removeFromCart('${itemName}')">Remove</button>
+            `;
+            cartList.appendChild(listItem);
+        }
+    }
+
+    function removeFromCart(itemName) {
+        var existingItem = document.querySelector(`#cart-items li[data-item='${itemName}']`);
+
+        if (existingItem) {
+            var quantitySpan = existingItem.querySelector(".quantity");
+            var quantity = parseInt(quantitySpan.innerText);
+
+            if (quantity > 1) {
+                quantitySpan.innerText = quantity - 1;
+            } else {
+                existingItem.remove();
+            }
+        }
+    }
+
         
     </style>
 </head>
@@ -133,7 +170,6 @@
     <!-- Category: Food & Drinks -->
     <button class="category" onclick="toggleItems('food-drinks')">Food & Drinks</button>
     <img src="food-drinks.JPG" alt="Food & Drinks" class = "category-img">
-    </button>
     <ul id="food-drinks" class="items">
         
         <li>Customized Cupcakes (Various Flavors)</li>
@@ -224,48 +260,6 @@
             }
         }
 
-        <div class="cart">
-    <h2>Shopping Cart</h2>
-    <ul id="cart-items"></ul>
-</div>
-
-         function addToCart(itemName) {
-        var cartList = document.getElementById("cart-items");
-
-        // Check if the item already exists in the cart
-        var existingItem = document.querySelector(`#cart-items li[data-item='${itemName}']`);
-        
-        if (existingItem) {
-            // Update quantity if item is already in the cart
-            var quantitySpan = existingItem.querySelector(".quantity");
-            var quantity = parseInt(quantitySpan.innerText);
-            quantitySpan.innerText = quantity + 1;
-        } else {
-            // Create a new cart item
-            var listItem = document.createElement("li");
-            listItem.setAttribute("data-item", itemName);
-            listItem.innerHTML = `
-                ${itemName} - <span class="quantity">1</span>
-                <button onclick="removeFromCart('${itemName}')">Remove</button>
-            `;
-            cartList.appendChild(listItem);
-        }
-    }
-
-    function removeFromCart(itemName) {
-        var existingItem = document.querySelector(`#cart-items li[data-item='${itemName}']`);
-
-        if (existingItem) {
-            var quantitySpan = existingItem.querySelector(".quantity");
-            var quantity = parseInt(quantitySpan.innerText);
-
-            if (quantity > 1) {
-                quantitySpan.innerText = quantity - 1;
-            } else {
-                existingItem.remove();
-            }
-        }
-    }
 
     
     </script>
